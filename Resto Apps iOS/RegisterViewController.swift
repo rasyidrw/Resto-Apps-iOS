@@ -1,8 +1,8 @@
 //
-//  LoginViewController.swift
+//  RegisterViewController.swift
 //  Resto Apps iOS
 //
-//  Created by Rasyid Respati Wiriaatmaja on 03/02/20.
+//  Created by Rasyid Respati Wiriaatmaja on 04/02/20.
 //  Copyright © 2020 rasyidrw. All rights reserved.
 //
 
@@ -10,50 +10,47 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class LoginViewController: UIViewController {
+class RegisterViewController: UIViewController {
     
-    @IBOutlet weak var tfEmailLogin: UITextField!
-    @IBOutlet weak var tfPasswordLogin: UITextField!
+    @IBOutlet weak var tfRegisNama: UITextField!
+    @IBOutlet weak var tfRegisEmail: UITextField!
+    @IBOutlet weak var tfRegisPassword: UITextField!
+    @IBOutlet weak var tfRegisHp: UITextField!
     
     var userDefaultLogin = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        // Do any additional setup after loading the view.
     }
     
-    @IBAction func btnLogin(_ sender: UIButton) {
+    @IBAction func btnRegister(_ sender: UIButton) {
         
-        if tfEmailLogin.text == "" || tfPasswordLogin.text == "" {
-            showAlert(title: "warning", message: "tidak boleh kosong", isFinish: false)
+        if tfRegisNama.text == "" || tfRegisEmail.text == "" || tfRegisPassword.text == "" || tfRegisHp.text == "" {
+            showAlert(title: "Warning", message: "Tidak boleh kosong!", isFinish: false)
         } else {
-            let param : [String : String] = ["email" : tfEmailLogin.text!,
-                                             "password" : tfPasswordLogin.text!]
             
-            Alamofire.request(Constant().urlPublic + "login", method: .post, parameters: param, encoding: URLEncoding.httpBody, headers: nil).responseJSON {(response) in
+            let param : [String : String] = ["name" : tfRegisNama.text!,
+                                             "email" : tfRegisEmail.text!,
+                                             "password" : tfRegisPassword.text!,
+                                             "hp" : tfRegisHp.text!]
+            
+            Alamofire.request(Constant().urlPublic + "register", method: .post, parameters: param, encoding: URLEncoding.httpBody, headers: nil).responseJSON {(response) in
                 
                 let allJson = JSON(response.result.value as Any)
                 let sukses = allJson["sukses"].boolValue
                 let pesan = allJson["pesan"].stringValue
                 
                 if sukses{
+                    self.showAlert(title: "Sukses", message: pesan, isFinish: true)
                     
-                    self.userDefaultLogin.set(true, forKey: "isLogin")
-                    
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let destination = storyboard.instantiateViewController(withIdentifier: "navMenu")
-                    self.show(destination, sender: self)
                 } else {
-                    self.showAlert(title: "warning", message: pesan, isFinish: false)
-                }
+                    self.showAlert(title: "Gagal", message: pesan, isFinish: false)
                 
+                }
             }
         }
     }
-    
     
     func showAlert(title: String, message: String, isFinish : Bool) {
         
@@ -61,7 +58,10 @@ class LoginViewController: UIViewController {
         var ok = UIAlertAction()
         if isFinish {
             ok = UIAlertAction(title: "ok", style: .default, handler: {(alertAction) in
-                self.navigationController?.popToRootViewController(animated: true)
+                
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let destination = storyboard.instantiateViewController(withIdentifier: "login")
+                self.show(destination, sender: self)
             })
         } else {
             ok = UIAlertAction(title: "ok", style: .default, handler: nil)
@@ -71,7 +71,6 @@ class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
         
     }
-    
     
     /*
      // MARK: - Navigation

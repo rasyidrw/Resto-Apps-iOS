@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		276B556F23E9B1F600A33665 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276B556E23E9B1F600A33665 /* RegisterViewController.swift */; };
 		27A23ABD23E7CB9800EFABCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A23ABC23E7CB9800EFABCA /* AppDelegate.swift */; };
 		27A23ABF23E7CB9800EFABCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A23ABE23E7CB9800EFABCA /* SceneDelegate.swift */; };
 		27A23AC123E7CB9800EFABCA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A23AC023E7CB9800EFABCA /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		276B556E23E9B1F600A33665 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		27A23AB923E7CB9800EFABCA /* Resto Apps iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Resto Apps iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27A23ABC23E7CB9800EFABCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27A23ABE23E7CB9800EFABCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				27A23AD423E7D3FE00EFABCA /* Const.swift */,
 				27A23AD623E802FD00EFABCA /* EditViewController.swift */,
 				27A23AD823E80F4F00EFABCA /* LoginViewController.swift */,
+				276B556E23E9B1F600A33665 /* RegisterViewController.swift */,
 			);
 			path = "Resto Apps iOS";
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				276B556F23E9B1F600A33665 /* RegisterViewController.swift in Sources */,
 				27A23AD123E7D12C00EFABCA /* MenuTableViewController.swift in Sources */,
 				27A23AC123E7CB9800EFABCA /* ViewController.swift in Sources */,
 				27A23ABD23E7CB9800EFABCA /* AppDelegate.swift in Sources */,
