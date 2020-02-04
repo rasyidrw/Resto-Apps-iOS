@@ -14,8 +14,26 @@ class MenuTableViewController: UITableViewController {
     
     var dataMakanan = [[String : String]]()
     
+    var userDefaultLogin : UserDefaults?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        userDefaultLogin = UserDefaults.standard
+        
+        //MARK: Cek sudah login atau belom, kalo belom balik ke login page
+        let isLogin : Bool = (userDefaultLogin?.bool(forKey: "isLogin"))!
+        
+        if isLogin{
+            print("sudah login view did load")
+            getData()
+        } else {
+            print("sudah login view did load")
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let destination = storyboard.instantiateViewController(withIdentifier: "login")
+            show(destination, sender: self)
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -24,6 +42,15 @@ class MenuTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         getData()
+    }
+    @IBAction func btnLogout(_ sender: UIBarButtonItem) {
+        
+        userDefaultLogin?.removeObject(forKey: "isLogin")
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destination = storyboard.instantiateViewController(withIdentifier: "login")
+        show(destination, sender: self)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

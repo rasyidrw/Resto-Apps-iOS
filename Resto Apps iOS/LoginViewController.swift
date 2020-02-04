@@ -20,19 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        userDefaultLogin = UserDefaults.standard
-        
-        let isLogin : Bool = (userDefaultLogin.bool(forKey: "isLogin"))
-        
-        if isLogin == true {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let destination = storyboard.instantiateViewController(withIdentifier: "navMenu")
-            show(destination, sender: self)
-            
-            print("sudah login")
-        } else {
-            print("belum login")
-        }
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
         
         // Do any additional setup after loading the view.
     }

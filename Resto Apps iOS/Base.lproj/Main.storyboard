@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vs5-BM-aPB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="DoJ-15-f9X">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -207,6 +207,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="c6u-2Y-dz6">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="6zX-3H-gzc">
+                            <connections>
+                                <action selector="btnLogout:" destination="10Y-nL-Wm6" id="gEo-fY-PA5"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kha-He-nag">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" id="zuR-Od-cuE"/>
@@ -221,7 +226,7 @@
         <!--Login View Controller-->
         <scene sceneID="8Rh-r1-APt">
             <objects>
-                <viewController id="Vs5-BM-aPB" customClass="LoginViewController" customModule="Resto_Apps_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="Vs5-BM-aPB" customClass="LoginViewController" customModule="Resto_Apps_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KXI-Km-c3Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -271,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xdS-zC-l0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3500" y="485"/>
+            <point key="canvasLocation" x="246" y="485"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lGy-Bh-T2r">
